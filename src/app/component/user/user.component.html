@@ -1,0 +1,71 @@
+<div class="container main-container">
+
+  <div class="d-flex justify-content-between">
+    <h2>Usuario</h2>
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-outline-danger" type="button" [routerLink]="['/users']">
+        <i class="fas fa-ban" style="margin-right: 5px;"></i> Cancelar
+      </button>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+
+    <div class="col-md-5">
+
+      <form (ngSubmit)="guardarUser()" #forma="ngForm">
+
+        <div class="form-group" [ngClass]="{ 'has-danger' : username.errors?.minlength || username.errors?.patter || username.errors?.required && username.touched}">
+          <label>Username</label>
+          <input [(ngModel)]="user.username" type="text" name="username" class="form-control" pattern="^[a-zA-Z_-]+(?:\s+[a-zA-Z_-]+)*$"
+            placeholder="Username" autocomplete="off" required minlength="4" #username="ngModel">
+          <br>
+          <div *ngIf="username.errors?.required && username.touched" class="alert alert-danger form-control-feadback"
+            role="alert">
+            <strong>Este Campo es Requerido</strong>
+          </div>
+          <div *ngIf="username.errors?.minlength" class="alert alert-danger form-control-feadback" role="alert">
+            <strong>Minimo {{ username.errors.minlength.requiredLength }} caracteres</strong>
+          </div>
+
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-danger' : password.errors?.minlength || password.errors?.patter || password.errors?.required && password.touched}">
+          <label>Password</label>
+          <input [(ngModel)]="user.password" type="password" autocomplete="off" name="password" class="form-control" placeholder="Password"
+            autocomplete="off" required minlength="4" #password="ngModel">
+          <br>
+          <div *ngIf="password.errors?.required && password.touched" class="alert alert-danger form-control-feadback"
+            role="alert">
+            <strong>Este Campo es Requerido</strong>
+          </div>
+          <div *ngIf="password.errors?.minlength" class="alert alert-danger form-control-feadback" role="alert">
+            <strong>Minimo {{ password.errors.minlength.requiredLength }} caracteres</strong>
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <label>Rol</label>
+          <select class="form-control" [(ngModel)]="user.role" name="role">
+            <option value="-1">Eliga un Rol</option>
+            <option value="ADMIN">ADMIN</option>
+            <option value="USER">USER</option>
+            <option value="GUEST">GUEST</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+            <button [disabled]="!forma.valid" type="submit" class="btn btn-outline-primary">
+              Guardar
+            </button>
+          </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

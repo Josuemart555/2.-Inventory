@@ -1,0 +1,30 @@
+<div class="container main-container">
+
+  <div class="d-flex justify-content-between">
+    <h1>Usuarios</h1>
+    <button [routerLink]="['/user', 'nuevo']"
+    type="button" class="btn btn-outline-primary">
+    <i class="fas fa-plus" style="margin-right: 5px;"></i>Agregar
+  </button>
+  </div>
+
+  <br>
+  <br>
+
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Usuario</th>
+        <th>Role</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of listaOrdenada | sortingCategory:path:order; let i = index">
+            <th>{{ i + 1 }}</th>
+            <th>{{ i + 1 }}</th>
+        </tr>
+    </tbody>
+  </table>
+
+</div>

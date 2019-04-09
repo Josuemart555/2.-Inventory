@@ -27,6 +27,9 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { InventarioComponent } from './component/inventario/inventario.component';
 import { SortingCompaniesPipe } from './pipe/sorting-companies.pipe';
 import { SortingCategoryPipe } from './pipe/sorting-category.pipe';
+import { UsersComponent } from './component/users/users.component';
+import { UsersService } from './providers/users.service';
+import { UserComponent } from './component/user/user.component';
 
 
 @NgModule({
@@ -42,7 +45,9 @@ import { SortingCategoryPipe } from './pipe/sorting-category.pipe';
     NavbarComponent,
     InventarioComponent,
     SortingCompaniesPipe,
-    SortingCategoryPipe
+    SortingCategoryPipe,
+    UsersComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +60,8 @@ import { SortingCategoryPipe } from './pipe/sorting-category.pipe';
   ],
   providers: [
     CategoriasService,
-    ProductosService
+    ProductosService,
+    UsersService
   ],
   bootstrap: [AppComponent]
 })
