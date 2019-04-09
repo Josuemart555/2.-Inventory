@@ -59,7 +59,7 @@ export class BuscardorComponent implements OnInit {
       return;
     }
 
-    if (this.combitoPrecio == null) {
+    if (this.combitoPrecio == null && this.combito == 'Precio') {
       this.toastr.error('Debe de elegir una opción de precio', 'ERROR', {
         timeOut: 4000,
         positionClass: 'toast-top-right'
