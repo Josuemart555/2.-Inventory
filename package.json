@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot --prod"
   },
   "private": true,
   "dependencies": {
@@ -21,7 +22,6 @@
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
     "core-js": "^2.5.4",
-    "heroku": "^7.22.9",
     "ngx-order-pipe": "^2.0.1",
     "ngx-toastr": "^8.8.0",
     "rxjs": "^6.2.1",
@@ -48,5 +48,9 @@
     "protractor": "~5.3.0",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1"
+  },
+  "engines": {
+    "node": "8.11.3",
+    "npm": "6.4.1"
   }
 }
