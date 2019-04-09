@@ -30,12 +30,13 @@ export class ProductoComponent implements OnInit {
   idx: any;
   path: string[] = ['nombre'];
 
+   _pS: ProductosService;
+   _cS: CategoriasService;
+
   constructor(
-    private _pS: ProductosService,
-    private _cS: CategoriasService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private toastr: ToastrService
+    public router: Router,
+    public activatedRoute: ActivatedRoute,
+    public toastr: ToastrService
   ){
 
     this._cS.cargarData();
@@ -74,7 +75,7 @@ export class ProductoComponent implements OnInit {
     } else {
       this.producto.id = Math.floor(Math.random() * 1000000)
       let listaCategorias: Categoria[] = this._cS.categoriasList;
-      for (let categoria1 of listaCategorias) {
+        for (let categoria1 of listaCategorias) {
           if (categoria1.id == this.producto.categoria.id) {
               this.producto.categoria = categoria1;
           }

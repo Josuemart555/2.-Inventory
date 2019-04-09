@@ -17,10 +17,10 @@ export class InventarioComponent implements OnInit {
   nombre: any;
   path: string[] = ['nombre'];
 
-  constructor(
-    private _cS: CategoriasService,
-    private _pS: ProductosService
-  ){
+  _cS: CategoriasService;
+  _pS: ProductosService;
+
+  constructor( ){
     this._cS.cargarData();
     this._pS.cargarDataProductos();
   }
