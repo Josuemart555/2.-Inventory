@@ -30,10 +30,11 @@ export class ProductoComponent implements OnInit {
   idx: any;
   path: string[] = ['nombre'];
 
-   _pS: ProductosService;
-   _cS: CategoriasService;
+   
 
   constructor(
+    public _pS: ProductosService,
+    public _cS: CategoriasService,
     public router: Router,
     public activatedRoute: ActivatedRoute,
     public toastr: ToastrService
