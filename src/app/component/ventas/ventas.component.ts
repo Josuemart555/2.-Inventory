@@ -16,6 +16,7 @@ export class VentasComponent implements OnInit {
     cantidadPro: 0,
     total: 0
   };
+  path: string[] = ['producto'];
 
   listProduct: Producto[] = [];
 
