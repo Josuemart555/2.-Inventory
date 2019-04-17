@@ -23,7 +23,8 @@ export class ProductoComponent implements OnInit {
       id: 0,
       nombre: '',
       descripcion: ''
-    }
+    },
+    cantidad: 0
   }
 
   categorias: Categoria[] = [];

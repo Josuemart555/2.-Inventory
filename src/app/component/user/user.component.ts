@@ -31,6 +31,9 @@ export class UserComponent implements OnInit {
   idx: any;
   path: string[] = ['nombre'];
 
+  mostrarPas: boolean = false;
+  type: string = 'password';
+
 
   constructor(
     public _uS: UsersService,
@@ -38,41 +41,53 @@ export class UserComponent implements OnInit {
     public activatedRoute: ActivatedRoute,
     public toastr: ToastrService
   ) {
-    this.activatedRoute.params.subscribe( parametros =>{
+    this.activatedRoute.params.subscribe(parametros => {
       this.idx = parametros['id']
-      if ( this.idx !== 'nuevo' ) {
+      if (this.idx !== 'nuevo') {
 
         this.user = this._uS.usersList[this.idx]
+      } else {
+        this.user.role = '-1';
       }
     })
-    this.user.role = '-1';
+
   }
 
   ngOnInit() {
   }
 
-  guardarUser(){
-    console.log('entro metodo')
-    console.log(this.user)
-    if ( this.idx != 'nuevo' ) {
-      console.log('actualiza registro')
-        this._uS.actualizarUser( this.user, this.idx );
-        this.toastr.success('Operación Realizada Correctamente', 'Usuario Actualizado', {
-          timeOut: 4000,
-          positionClass: 'toast-top-right'
-        });
-        this.router.navigate( ['/users'] )
+  guardarUser() {
+
+    if (this.idx != 'nuevo') {
+      this._uS.actualizarUser(this.user, this.idx);
+      this.toastr.success('Operación Realizada Correctamente', 'Usuario Actualizado', {
+        timeOut: 4000,
+        positionClass: 'toast-top-right'
+      });
+      this.router.navigate(['/users'])
     } else {
-      console.log('nuevo registro')
       this.user.id = Math.floor(Math.random() * 1000000);
-      this._uS.nuevoUser( this.user );
-      this.router.navigate( ['/users'] )
+      localStorage.setItem('usuario', JSON.stringify(this.user));
+      this._uS.nuevoUser(this.user);
+      this.router.navigate(['/users'])
       this.toastr.success('Operación Realizada Correctamente', 'Usuario Agregado', {
         timeOut: 4000,
         positionClass: 'toast-top-right'
       });
     }
-  
-}
+
+  }
+
+  mostrarPassword() {
+
+    this.mostrarPas = !this.mostrarPas;
+
+    if (this.mostrarPas) {
+      this.type = 'text'
+    } else {
+      this.type = 'password'
+    }
+
+  }
 
 }

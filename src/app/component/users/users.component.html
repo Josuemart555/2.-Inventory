@@ -21,8 +21,42 @@
     </thead>
     <tbody>
         <tr *ngFor="let user of listaOrdenada | sortingCategory:path:order; let i = index">
-            <th>{{ i + 1 }}</th>
-            <th>{{ i + 1 }}</th>
+            <th>{{ user.username }}</th>
+            <th>{{ user.role }}</th>
+            <td class="text-right w120">
+              <button [routerLink]="['/user', i]"
+                      type="button" class="btn btn-outline-success">
+                Editar <i class="far fa-edit"></i>
+              </button>
+              <!-- Button trigger modal -->
+              <button (click)="setValor(i)" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+                Eliminar <i class="far fa-trash-alt"></i>
+              </button>
+    
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel"><strong>Confirmación</strong></h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="text-center modal-body">
+                      Esta Seguro Que Quiere Eliminar este Usuario
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Cancelar</button>
+                      <button (click)="borrarUser()" data-dismiss="modal"
+                              type="button" class="btn btn-outline-danger">
+                        Aceptar <i class="far fa-trash-alt"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
         </tr>
     </tbody>
   </table>

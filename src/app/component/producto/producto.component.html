@@ -72,6 +72,27 @@
           </select>
         </div>
 
+        <div class="form-group"
+             [ngClass]="{ 'has-danger' : cantidad.errors?.minlength || cantidad.errors?.patter || cantidad.errors?.required && cantidad.touched}">
+          <label>Cantidad</label>
+          <input [(ngModel)]="producto.cantidad" step="1"
+          type="number" name="cantidad" min="0"
+          class="form-control"  autocomplete="off"
+          required minlength="1" #cantidad="ngModel">
+                 <br>
+                 <div *ngIf="cantidad.errors?.required && cantidad.touched"
+                      class="alert alert-danger form-control-feadback"
+                      role="alert">
+                  <strong>Este Campo es Requerido</strong>
+                </div>
+                 <div *ngIf="cantidad.errors?.minlength && cantidad.touched"
+                      class="alert alert-danger form-control-feadback"
+                      role="alert">
+                  <strong>Minimo {{ cantidad.errors.minlength.requiredLength }} caracteres</strong>
+                </div>
+
+        </div>
+
         <div class="form-group">
           <button [disabled]="!forma.valid"
                   type="submit"

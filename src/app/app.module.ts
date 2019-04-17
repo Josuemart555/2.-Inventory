@@ -30,6 +30,11 @@ import { SortingCategoryPipe } from './pipe/sorting-category.pipe';
 import { UsersComponent } from './component/users/users.component';
 import { UsersService } from './providers/users.service';
 import { UserComponent } from './component/user/user.component';
+import { LoginComponent } from './component/login/login.component';
+import { AuthGuardLoginServiceServiceService } from './providers/auth-guard-login-service-service.service';
+import { LoginService } from './providers/login.service';
+import { AuthGuardNoLoginServiceServiceServiceService } from './providers/auth-guard-no-login-service-service-service.service';
+import { VentasComponent } from './component/ventas/ventas.component';
 
 
 @NgModule({
@@ -47,7 +52,9 @@ import { UserComponent } from './component/user/user.component';
     SortingCompaniesPipe,
     SortingCategoryPipe,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    LoginComponent,
+    VentasComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +68,10 @@ import { UserComponent } from './component/user/user.component';
   providers: [
     CategoriasService,
     ProductosService,
-    UsersService
+    UsersService,
+    AuthGuardLoginServiceServiceService,
+    LoginService,
+    AuthGuardNoLoginServiceServiceServiceService
   ],
   bootstrap: [AppComponent]
 })
