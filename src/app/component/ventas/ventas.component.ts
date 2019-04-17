@@ -19,7 +19,7 @@ export class VentasComponent implements OnInit {
 
   listProduct: Producto[] = [];
 
-  constructor(private _pS: ProductosService) { }
+  constructor(public _pS: ProductosService) { }
 
   ngOnInit() {
   }
