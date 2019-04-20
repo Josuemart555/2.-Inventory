@@ -44,12 +44,12 @@ const APP_ROUTES: Routes = [
   {
     path: 'buscar',
     component: BuscardorComponent,
-    canActivate: [AuthGuardNoLoginServiceServiceServiceService, AuthGuardUserPermitsService]
+    canActivate: [AuthGuardNoLoginServiceServiceServiceService]
   },
   {
     path: 'inventario',
     component: InventarioComponent,
-    canActivate: [AuthGuardNoLoginServiceServiceServiceService, AuthGuardUserPermitsService]
+    canActivate: [AuthGuardNoLoginServiceServiceServiceService]
   },
   {
     path: 'users',
