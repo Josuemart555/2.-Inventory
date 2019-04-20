@@ -17,6 +17,8 @@ import { AuthGuardNoLoginServiceServiceServiceService } from './providers/auth-g
 import { LoginService } from './providers/login.service';
 import { AuthGuardLoginServiceServiceService } from './providers/auth-guard-login-service-service.service';
 import { UsersService } from './providers/users.service';
+import { AuthGuardUserPermitsService } from './providers/auth-guard-user-permits.service';
+import { AuthGuardUserPermitsUserService } from './providers/auth-guard-user-permits-user.service';
 
 //pipe
 import { KeysPipe } from './pipe/keys.pipe';
@@ -73,7 +75,9 @@ import { VentasComponent } from './component/ventas/ventas.component';
     AuthGuardLoginServiceServiceService,
     LoginService,
     AuthGuardNoLoginServiceServiceServiceService,
-    VentasService
+    VentasService,
+    AuthGuardUserPermitsService,
+    AuthGuardUserPermitsUserService
   ],
   bootstrap: [AppComponent]
 })
