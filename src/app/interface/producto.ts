@@ -5,6 +5,7 @@ export interface Producto {
   id: number,
   nombre: string,
   precio: number,
-  categoria: Categoria
+  categoria: Categoria,
+  cantidad: number
 
 }

@@ -6,11 +6,39 @@
 
   <br><br>
 
-  <div class="form-group">
-    <label>Producto</label>
-    <select class="form-control" [(ngModel)]="venta.productoId" name="producto">
-      <option *ngFor="let producto of _pS.productosList | sortingCompanies:path:1" [value]="producto.id">{{ producto.nombre }}</option>
-    </select>
-  </div>
+  <form (ngSubmit)="guardarVenta()" #forma="ngForm">
+
+
+    <div class="form-group">
+      <label>Producto</label>
+      <select class="form-control" [(ngModel)]="venta.productoId" name="producto">
+        <option *ngFor="let producto of _pS.productosList | sortingCompanies:path:1" [value]="producto.id">
+          {{ producto.nombre }}</option>
+      </select>
+
+      <div class="form-group"
+        [ngClass]="{ 'has-danger' : cantidadPro.errors?.minlength || cantidadPro.errors?.required && cantidadPro.touched}">
+        <label>Cantidad</label>
+        <input [(ngModel)]="venta.cantidadPro" step="1" type="number" name="cantidadPro" min="0" class="form-control"
+          autocomplete="off" required minlength="1" #cantidadPro="ngModel">
+        <br>
+        <div *ngIf="cantidadPro.errors?.required && cantidadPro.touched"
+          class="alert alert-danger form-control-feadback" role="alert">
+          <strong>Este Campo es Requerido</strong>
+        </div>
+        <div *ngIf="cantidadPro.errors?.minlength && cantidadPro.touched"
+          class="alert alert-danger form-control-feadback" role="alert">
+          <strong>Minimo {{ cantidadPro.errors.minlength.requiredLength }} caracteres</strong>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button [disabled]="!forma.valid" type="submit" class="btn btn-outline-primary">
+          Guardar
+        </button>
+      </div>
+
+    </div>
+  </form>
 
 </div>

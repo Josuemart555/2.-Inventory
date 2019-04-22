@@ -12,9 +12,18 @@ import { APP_ROUTING } from './app.routing';
 //services
 import { CategoriasService } from '../app/providers/categorias.service';
 import { ProductosService } from '../app/providers/productos.service';
+import { VentasService } from './providers/ventas.service';
+import { AuthGuardNoLoginServiceServiceServiceService } from './providers/auth-guard-no-login-service-service-service.service';
+import { LoginService } from './providers/login.service';
+import { AuthGuardLoginServiceServiceService } from './providers/auth-guard-login-service-service.service';
+import { UsersService } from './providers/users.service';
+import { AuthGuardUserPermitsService } from './providers/auth-guard-user-permits.service';
+import { AuthGuardUserPermitsUserService } from './providers/auth-guard-user-permits-user.service';
 
 //pipe
 import { KeysPipe } from './pipe/keys.pipe';
+import { SortingCategoryPipe } from './pipe/sorting-category.pipe';
+import { SortingCompaniesPipe } from './pipe/sorting-companies.pipe';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
@@ -25,15 +34,9 @@ import { ProductoComponent } from './component/producto/producto.component';
 import { BuscardorComponent } from './component/buscardor/buscardor.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { InventarioComponent } from './component/inventario/inventario.component';
-import { SortingCompaniesPipe } from './pipe/sorting-companies.pipe';
-import { SortingCategoryPipe } from './pipe/sorting-category.pipe';
 import { UsersComponent } from './component/users/users.component';
-import { UsersService } from './providers/users.service';
 import { UserComponent } from './component/user/user.component';
 import { LoginComponent } from './component/login/login.component';
-import { AuthGuardLoginServiceServiceService } from './providers/auth-guard-login-service-service.service';
-import { LoginService } from './providers/login.service';
-import { AuthGuardNoLoginServiceServiceServiceService } from './providers/auth-guard-no-login-service-service-service.service';
 import { VentasComponent } from './component/ventas/ventas.component';
 
 
@@ -71,7 +74,10 @@ import { VentasComponent } from './component/ventas/ventas.component';
     UsersService,
     AuthGuardLoginServiceServiceService,
     LoginService,
-    AuthGuardNoLoginServiceServiceServiceService
+    AuthGuardNoLoginServiceServiceServiceService,
+    VentasService,
+    AuthGuardUserPermitsService,
+    AuthGuardUserPermitsUserService
   ],
   bootstrap: [AppComponent]
 })

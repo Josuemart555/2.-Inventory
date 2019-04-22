@@ -23,6 +23,7 @@
           ><span [hidden]="!reverse">▲</span>
         </th>
         <th>Precio</th>
+        <th>Cantidad</th>
         <th>Categoria</th>
         <th>Opciones</th>
       </tr>
@@ -33,6 +34,7 @@
         <th>{{ producto.id }}</th>
         <td>{{ producto.nombre }}</td>
         <td>{{ producto.precio | currency: 'EUR' }}</td>
+        <td>{{ producto.cantidad }}</td>
         <td>{{ producto.categoria.nombre }}</td>
         <td class="text-right w120">
           <button [routerLink]="['/producto', i]"

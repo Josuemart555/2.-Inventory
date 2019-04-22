@@ -12,63 +12,65 @@ import { AuthGuardLoginServiceServiceService } from './providers/auth-guard-logi
 import { LoginComponent } from './component/login/login.component';
 import { AuthGuardNoLoginServiceServiceServiceService } from './providers/auth-guard-no-login-service-service-service.service';
 import { VentasComponent } from './component/ventas/ventas.component';
+import { AuthGuardUserPermitsService } from './providers/auth-guard-user-permits.service';
+import { AuthGuardUserPermitsUserService } from './providers/auth-guard-user-permits-user.service';
 
 const APP_ROUTES: Routes = [
-  { 
-    path: 'home', 
+  {
+    path: 'home',
     component: HomeComponent,
-    canActivate: [ AuthGuardNoLoginServiceServiceServiceService ]
+    canActivate: [AuthGuardNoLoginServiceServiceServiceService]
   },
-  { 
-    path: 'categorias', 
+  {
+    path: 'categorias',
     component: CategoriasComponent,
-    canActivate: [ AuthGuardNoLoginServiceServiceServiceService ] 
+    canActivate: [AuthGuardNoLoginServiceServiceServiceService, AuthGuardUserPermitsService]
   },
-  { 
-    path: 'productos', 
-    component: ProductosComponent ,
-    canActivate: [ AuthGuardNoLoginServiceServiceServiceService ]
+  {
+    path: 'productos',
+    component: ProductosComponent,
+    canActivate: [AuthGuardNoLoginServiceServiceServiceService, AuthGuardUserPermitsService]
   },
-  { 
-    path: 'categoria/:id', 
+  {
+    path: 'categoria/:id',
     component: CategoriaComponent,
-    canActivate: [ AuthGuardNoLoginServiceServiceServiceService ] 
+    canActivate: [AuthGuardNoLoginServiceServiceServiceService, AuthGuardUserPermitsService]
   },
-  { 
-    path: 'producto/:id', 
-    component: ProductoComponent ,
-    canActivate: [ AuthGuardNoLoginServiceServiceServiceService ]
+  {
+    path: 'producto/:id',
+    component: ProductoComponent,
+    canActivate: [AuthGuardNoLoginServiceServiceServiceService, AuthGuardUserPermitsService]
   },
-  { 
-    path: 'buscar', 
+  {
+    path: 'buscar',
     component: BuscardorComponent,
-    canActivate: [ AuthGuardNoLoginServiceServiceServiceService ] 
+    canActivate: [AuthGuardNoLoginServiceServiceServiceService]
   },
-  { 
-    path: 'inventario', 
+  {
+    path: 'inventario',
     component: InventarioComponent,
-    canActivate: [ AuthGuardNoLoginServiceServiceServiceService ] 
+    canActivate: [AuthGuardNoLoginServiceServiceServiceService]
   },
-  { 
-    path: 'users', 
+  {
+    path: 'users',
     component: UsersComponent,
-    canActivate: [ AuthGuardNoLoginServiceServiceServiceService ] 
+    canActivate: [AuthGuardNoLoginServiceServiceServiceService, AuthGuardUserPermitsService, AuthGuardUserPermitsUserService]
   },
-  { 
-    path: 'user/:id', 
+  {
+    path: 'user/:id',
     component: UserComponent,
-    canActivate: [ AuthGuardNoLoginServiceServiceServiceService ] 
+    canActivate: [AuthGuardNoLoginServiceServiceServiceService, AuthGuardUserPermitsService]
   },
-  { 
-    path: 'ventas', 
+  {
+    path: 'ventas',
     component: VentasComponent,
-    canActivate: [ AuthGuardNoLoginServiceServiceServiceService ] 
+    canActivate: [AuthGuardNoLoginServiceServiceServiceService, AuthGuardUserPermitsService]
   },
-  { 
+  {
     path: 'login',
     component: LoginComponent,
-    canActivate: [ AuthGuardLoginServiceServiceService ]
-   },
+    canActivate: [AuthGuardLoginServiceServiceService]
+  },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
